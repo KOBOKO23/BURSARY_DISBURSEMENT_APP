@@ -1,1 +1,15 @@
-{"BaseModel.f5608c07-bc9d-43f5-b717-defa1f04f66e": {"id": "f5608c07-bc9d-43f5-b717-defa1f04f66e", "created_at": "2024-08-26T20:47:33.854703", "updated_at": "2024-08-26T20:47:33.855097", "name": "My_First_Model", "my_number": 89, "__class__": "BaseModel"}}
+{
+    "Applicant.None": {
+        "id": null,
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "john.doe@mail.com",
+        "password": "anotherpassword",
+        "institution": "Example Institute",
+        "course": "Data Science",
+        "amount_requested": 1500.0,
+        "created_at": null,
+        "updated_at": null,
+        "__class__": "Applicant"
+    }
+}

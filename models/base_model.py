@@ -1,32 +1,41 @@
-import models
-from uuid import uuid4
+import uuid
 from datetime import datetime
+from sqlalchemy import Column, String, DateTime
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
 
 class BaseModel:
+    """A base class for all models with common attributes."""
+    
+    id = Column(String(60), primary_key=True, default=lambda: str(uuid.uuid4()))
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    
     def __init__(self, *args, **kwargs):
+        """Initialize the BaseModel instance."""
         if kwargs:
             for key, value in kwargs.items():
-                if key == "created_at" or key == "updated_at":
-                    value = datetime.fromisoformat(value)
-                setattr(self, key, value)
-        else:
-            self.id = str(uuid4())
-            self.created_at = self.updated_at = datetime.now()
-            models.storage.new(self)
-
+                if hasattr(self, key):
+                    setattr(self, key, value)
+    
     def save(self):
-        """Updates `updated_at` with current time and saves object to storage"""
-        self.updated_at = datetime.now()
-        models.storage.save()
+        """Save the instance to the storage."""
+        from models import storage
+        storage.new(self)
+        storage.save()
 
     def to_dict(self):
-        """Returns a dictionary containing all keys/values of __dict__ of the instance"""
-        my_dict = self.__dict__.copy()
-        my_dict["__class__"] = self.__class__.__name__
-        my_dict["created_at"] = self.created_at.isoformat()
-        my_dict["updated_at"] = self.updated_at.isoformat()
-        return my_dict
+        """Convert model instance to dictionary."""
+        dict_representation = {}
+        for column in self.__table__.columns:
+            dict_representation[column.name] = getattr(self, column.name)
+        dict_representation['id'] = self.id
+        dict_representation['created_at'] = self.created_at.isoformat() if self.created_at else None
+        dict_representation['updated_at'] = self.updated_at.isoformat() if self.updated_at else None
+        dict_representation['__class__'] = self.__class__.__name__
+        return dict_representation
 
     def __str__(self):
-        """String representation of the BaseModel"""
+        """Return a string representation of the model."""
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
