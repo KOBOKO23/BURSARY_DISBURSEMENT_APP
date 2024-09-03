@@ -1,15 +1,1 @@
-{
-    "Applicant.None": {
-        "id": null,
-        "first_name": "John",
-        "last_name": "Doe",
-        "email": "john.doe@mail.com",
-        "password": "anotherpassword",
-        "institution": "Example Institute",
-        "course": "Data Science",
-        "amount_requested": 1500.0,
-        "created_at": null,
-        "updated_at": null,
-        "__class__": "Applicant"
-    }
-}
+{"Student.d0cad423-6cf4-4e6b-9bdc-6fe9a2763d71": {"id": "d0cad423-6cf4-4e6b-9bdc-6fe9a2763d71", "created_at": "2024-09-03T21:12:44.689501", "updated_at": "2024-09-03T21:12:44.689501", "bursary_amount": 50000, "__class__": "Student"}}

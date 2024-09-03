@@ -1,38 +1,42 @@
+#!/usr/bin/python3
+from datetime import datetime
+import unittest
 from models import storage
-from models.applicant import Applicant  # Import the customized Applicant model
+from models.base_model import BaseModel
+from models.user import User
 
-import sys
-import os
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-
-# Reload existing objects
 all_objs = storage.all()
 print("-- Reloaded objects --")
 for obj_id in all_objs.keys():
     obj = all_objs[obj_id]
     print(obj)
 
-print("-- Create a new Applicant --")
-my_applicant = Applicant()
-my_applicant.first_name = "Betty"
-my_applicant.last_name = "Bar"
-my_applicant.email = "betty.bar@mail.com"
-my_applicant.password = "securepassword"
-my_applicant.institution = "University of Example"
-my_applicant.course = "Computer Science"
-my_applicant.amount_requested = 1000.0
-my_applicant.save()
-print(my_applicant)
+print("-- Create a new User --")
+my_user = User()
+my_user.first_name = "Betty"
+my_user.last_name = "Bar"
+my_user.is_admin = False
+my_user.is_active = True
+my_user.date_of_birth = datetime.now()
+my_user.phone_number = "0725031720"
+my_user.profile_image = " "
+my_user.institution = "Siala Technical Institute"
+my_user.email = "kobokomasero@mail.com"
+my_user.password = "root"
+my_user.save()
+print(my_user)
 
-print("-- Create a new Applicant 2 --")
-my_applicant2 = Applicant()
-my_applicant2.first_name = "John"
-my_applicant2.last_name = "Doe"
-my_applicant2.email = "john.doe@mail.com"
-my_applicant2.password = "anotherpassword"
-my_applicant2.institution = "Example Institute"
-my_applicant2.course = "Data Science"
-my_applicant2.amount_requested = 1500.0
-my_applicant2.save()
-print(my_applicant2)
+print("-- Create a new User 2 --")
+my_user2 = User()
+my_user2.first_name = "John"
+my_user.is_admin = True
+my_user.is_active = False
+my_user.date_of_birth = datetime.now()
+my_user.phone_number = "0788886898"
+my_user.profile_image = " "
+my_user.institution = "Kisii University"
+my_user.email = "jaduon@mail.com"
+my_user2.email = "airbnb2@mail.com"
+my_user2.password = "root"
+my_user2.save()
+print(my_user2)

@@ -1,9 +1,4 @@
-import sys
-import os
-
-# Ensure that the parent directory (project root) is in sys.path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
+#!/usr/bin/python3
 from models.base_model import BaseModel
 
 my_model = BaseModel()
