@@ -1,0 +1,71 @@
+#!/usr/bin/python3
+"""Test script for BursaryApplication integration"""
+
+from models.student import Student
+from models.institution import Institution
+from models.bursary_application import BursaryApplication
+
+def test_bursary_application_integration():
+    # Create Student instance
+    student = Student(
+        first_name="John",
+        last_name="Doe",
+        email="john.doe@example.com",
+        phone_number="123456789",
+        date_of_birth="2000-01-01",
+        parent_income=5000,
+        is_orphan=True
+    )
+    student.save()  # Save to simulate persisting to the database
+
+    # Create Institution instance
+    institution = Institution(
+        name="ABC University",
+        location="City Center",
+        contact_info="info@abcuniversity.edu"
+    )
+    institution.save()  # Save to simulate persisting to the database
+
+    # Add student to institution
+    institution.add_student(student)
+    institution.save()  # Save changes to the institution
+
+    # Create BursaryApplication instance
+    bursary_application = BursaryApplication(
+        student_id=student.id,
+        institution_id=institution.id,
+        parent_name={"mother": "Jane Doe", "father": "John Doe"},
+        parent_status={"mother": "alive", "father": "deceased"},
+        parent_income=5000,
+        student_profile={
+            "name": {"first_name": "John", "last_name": "Doe"},
+            "id_number": "12345678",
+            "institution_admitted": institution.id,
+            "index_number": "ABC123",
+            "course_period": "3 years"
+        },
+        location={
+            "county": "County A",
+            "constituency": "Constituency X",
+            "location": "Location Y",
+            "sub_location": "Sub-location Z",
+            "village": "Village Q"
+        }
+    )
+    bursary_application.save()  # Save to simulate persisting to the database
+
+    # Add bursary application to institution
+    institution.add_bursary_application(bursary_application)
+    institution.save()  # Save changes to the institution
+
+    # Output results
+    print("Student:", student)
+    print("Institution:", institution)
+    print("Bursary Application:", bursary_application)
+
+    # Print associated students and applications
+    print("Institution Students:", institution.students)
+    print("Institution Bursary Applications:", institution.bursary_applications)
+
+if __name__ == "__main__":
+    test_bursary_application_integration()

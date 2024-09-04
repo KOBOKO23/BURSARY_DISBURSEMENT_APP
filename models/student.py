@@ -19,6 +19,7 @@ class Student(BaseModel):
     is_partial_orphan = False
     institution_id = ""
     bursary_amount = 0.0
+    bursary_application_id = ""  # Link to BursaryApplication
 
     def __init__(self, *args, **kwargs):
         """__init__ method & instantiation of class Student
