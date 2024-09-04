@@ -1,0 +1,9 @@
+/* Header styles */
+header {
+    background-color: #0000FF; /* Blue */
+    height: 70px;
+    width: 100%;
+    color: white;
+    text-align: center;
+    line-height: 70px;
+}

@@ -1,0 +1,29 @@
+/* General header styling */
+header {
+    display: flex;
+    align-items: center;
+    padding: 10px; /* Adjust padding as needed */
+    background-color: #004d99; /* Example background color for header */
+    border-bottom: 2px solid #003366; /* Example border color */
+}
+
+/* Header content styling */
+.header-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Style the logo */
+.logo {
+    width: 100px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 15px; /* Space between logo and text */
+}
+
+/* Style the header text */
+.header-text {
+    font-size: 1.2rem;
+    color: #ffffff; /* Text color */
+    font-weight: bold; /* Example font weight */
+}

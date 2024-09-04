@@ -1,0 +1,146 @@
+/* Common styles for the container */
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+/* Styling for the hero image */
+.hero-image {
+    max-width: 90%; /* Adjust the width as needed */
+    height: auto;
+    border-radius: 20px; /* Smooth corners */
+    margin: 20px auto; /* Centered with space above and below */
+    display: block;
+}
+
+/* Filter section styles */
+.filters {
+    background-color: white;
+    height: auto;
+    width: 100%;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-bottom: 50px; /* Adjust this to move the buttons lower */
+}
+
+/* Auth buttons styles */
+.auth-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 50px; /* Adjust this to move the buttons lower */
+}
+
+.auth-btn {
+    background-color: #FF5A5F;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 200px; /* Adjust button size */
+}
+
+.auth-btn:hover {
+    opacity: 0.9;
+}
+
+.forgot-password {
+    color: #FF5A5F;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.forgot-password:hover {
+    color: #FF3A3F;
+}
+
+/* Header styles */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.header-left {
+    position: relative;
+}
+
+.portals-btn {
+    background-color: #008CBA;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.portals-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #FAFAFA;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    top: 40px;
+    left: 0;
+    width: 200px;
+    z-index: 1000;
+}
+
+.portals-btn:hover + .portals-dropdown,
+.portals-dropdown:hover {
+    display: block;
+}
+
+.portals-dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.portals-dropdown li {
+    padding: 10px;
+}
+
+.portals-dropdown a {
+    color: #333333;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.portals-dropdown a:hover {
+    background-color: #F1F1F1;
+}
+
+.share-icon {
+    margin-left: 10px;
+}
+
+.header-right {
+    display: flex;
+    gap: 20px;
+}
+
+.header-btn {
+    background-color: #FF5A5F;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.header-btn:hover {
+    opacity: 0.9;
+}

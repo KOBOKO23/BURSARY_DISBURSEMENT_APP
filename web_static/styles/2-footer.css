@@ -1,0 +1,11 @@
+/* Footer styles */
+footer {
+    background-color: #00BFFF; /* Light Blue */
+    height: 60px;
+    width: 100%;
+    color: white;
+    text-align: center;
+    line-height: 60px;
+    position: fixed;
+    bottom: 0;
+}
