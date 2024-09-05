@@ -28,7 +28,7 @@ class BUDACommand(cmd.Cmd):
         pass
 
     def do_create(self, line):
-        """Creates a new object and saves it"""
+        """Creates a new object with given parameters and saves it"""
         obj_cls = self.get_class_from_input(line)
         if obj_cls is not None:
             try:
@@ -76,7 +76,7 @@ class BUDACommand(cmd.Cmd):
         print([str(item) for item in result])
 
     def do_update(self, line):
-        """Updates an instance based on the class name and id by adding or updating attribute and saves the change into the storage file"""
+        """Updates an instance based on the class name and id by adding or updating an attribute and saves the change into the storage file"""
         key = self.get_obj_key_from_input(line)
         if key is None:
             return
@@ -117,6 +117,8 @@ class BUDACommand(cmd.Cmd):
                     value = value.lower() == 'true'
                 elif value.replace('.', '', 1).isdigit():
                     value = float(value) if '.' in value else int(value)
+                else:
+                    value = value.replace('_', ' ')  # Replace underscores with spaces for strings
                 parsed_args[key] = value
         return parsed_args
 
@@ -155,7 +157,7 @@ class BUDACommand(cmd.Cmd):
 
         attr_name = cmds[2].strip().strip('"')
         attr_val = cmds[3].strip().strip('"')
-        
+
         return attr_name, attr_val
 
     def get_class(self, class_name):
