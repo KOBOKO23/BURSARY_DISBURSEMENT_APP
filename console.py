@@ -32,10 +32,7 @@ class BUDACommand(cmd.Cmd):
         obj_cls = self.get_class_from_input(line)
         if obj_cls is not None:
             try:
-                # Parse arguments and convert them into keyword arguments
                 kwargs = self.parse_arguments(line)
-
-                # Create the object
                 new_obj = obj_cls(**kwargs)
                 new_obj.save()
                 print(new_obj.id)
@@ -164,7 +161,8 @@ class BUDACommand(cmd.Cmd):
     def get_class(self, class_name):
         """Dynamically imports and returns a class based on its name"""
         try:
-            module = importlib.import_module(f"models.{class_name.lower()}")
+            module_name = f"models.{class_name.lower()}"
+            module = importlib.import_module(module_name)
             return getattr(module, class_name)
         except (ImportError, AttributeError) as e:
             print(f"** error: {e}")
