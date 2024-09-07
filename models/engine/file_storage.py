@@ -6,7 +6,7 @@ from models.student import Student
 
 class FileStorage:
     """Serializes instances to a JSON file and deserializes back to instances"""
-    
+
     __file_path = "file.json"
     __objects = {}
 
@@ -23,18 +23,29 @@ class FileStorage:
     def save(self):
         """Saves objects to a JSON file"""
         with open(FileStorage.__file_path, 'w') as f:
-            json.dump({k: v.to_dict() for k, v in FileStorage.__objects.items()}, f)
+            json.dump(
+                {k: v.to_dict() for k, v in FileStorage.__objects.items()},
+                f,
+                default=str  # Convert non-serializable objects to strings
+            )
 
     def reload(self):
         """Loads objects from a JSON file"""
         if os.path.exists(FileStorage.__file_path):
-            with open(FileStorage.__file_path, 'r') as f:
-                objs = json.load(f)
-                for k, v in objs.items():
-                    cls_name = k.split('.')[0]
-                    cls = self.get_class(cls_name)
-                    if cls:
-                        FileStorage.__objects[k] = cls(**v)
+            try:
+                with open(FileStorage.__file_path, 'r') as f:
+                    try:
+                        objs = json.load(f)
+                        for k, v in objs.items():
+                            cls_name = k.split('.')[0]
+                            cls = self.get_class(cls_name)
+                            if cls:
+                                FileStorage.__objects[k] = cls(**v)
+                    except json.JSONDecodeError as e:
+                        print(f"JSONDecodeError: {e}")
+                        FileStorage.__objects = {}
+            except IOError as e:
+                print(f"Error opening file: {e}")
 
     def get_class(self, class_name):
         """Retrieves a class based on class name"""
