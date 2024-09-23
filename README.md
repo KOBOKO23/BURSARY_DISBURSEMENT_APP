@@ -47,7 +47,7 @@ The app includes a command interpreter to allow administrators to create, update
 
 4. **Start the Command Interpreter**:
    ```bash
-   ./bursary_interpreter.py
+   ./console.py
    ```
 
 ### How to Use the Command Interpreter
