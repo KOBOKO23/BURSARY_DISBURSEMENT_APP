@@ -1,8 +1,5 @@
-I can help you update the `README.md` to be more detailed, polished, and complete, based on the previous template and your current draft. I'll add more sections, improve formatting, and ensure that it includes all required elements.
+ `README.md`
 
-### Updated `README.md`
-
-```markdown
 # BURSARY DISBURSEMENT APP
 
 ![Bursary App Logo](./images/logo.png)
