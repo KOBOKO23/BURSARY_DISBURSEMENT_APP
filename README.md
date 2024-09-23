@@ -28,7 +28,7 @@ The app includes a command interpreter to allow administrators to create, update
 
 1. **Clone the Repository**: First, clone the repository from GitHub.
    ```bash
-   git clone https://github.com/your-username/bursary-disbursement-app.git
+   git clone https://github.com/KOBOKO23/BURSARY_DISBURSEMENT_APP.git
    cd bursary-disbursement-app
    ```
 
