@@ -1,9 +1,4 @@
-#!/usr/bin/python3
-"""Module student
-
-This Module contains a definition for the Student Class
-"""
-
+from datetime import datetime
 from models.base_model import BaseModel
 
 class Student(BaseModel):
@@ -13,8 +8,8 @@ class Student(BaseModel):
     last_name = ""
     email = ""
     phone_number = ""
-    date_of_birth = ""
-    parent_income = 0.0
+    date_of_birth = None  # Changed to datetime
+    parent_income = 0  # Ensure parent_income is an integer
     is_orphan = False
     is_partial_orphan = False
     institution_id = ""
@@ -29,6 +24,15 @@ class Student(BaseModel):
             **kwargs (dict): Key/value pairs
         """
         super().__init__(*args, **kwargs)
+
+        # Convert parent_income to int if it's a string
+        if isinstance(self.parent_income, str):
+            self.parent_income = int(self.parent_income)
+        
+        # Ensure date_of_birth is a datetime object
+        if isinstance(self.date_of_birth, str):
+            self.date_of_birth = datetime.fromisoformat(self.date_of_birth)
+        
         self.calculate_bursary_amount()
 
     def calculate_bursary_amount(self):

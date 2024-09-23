@@ -2,7 +2,6 @@ import json
 import os
 import importlib
 from models.base_model import BaseModel
-from models.student import Student
 
 class FileStorage:
     """Serializes instances to a JSON file and deserializes back to instances"""
@@ -42,10 +41,11 @@ class FileStorage:
                             if cls:
                                 FileStorage.__objects[k] = cls(**v)
                     except json.JSONDecodeError as e:
-                        print(f"JSONDecodeError: {e}")
+                        print(f"JSON decode error: {e}")
                         FileStorage.__objects = {}
             except IOError as e:
-                print(f"Error opening file: {e}")
+                print(f"IOError: {e}")
+                pass  # Ignore IOErrors to avoid clutter
 
     def get_class(self, class_name):
         """Retrieves a class based on class name"""
@@ -53,5 +53,5 @@ class FileStorage:
             module = importlib.import_module(f"models.{class_name.lower()}")
             return getattr(module, class_name)
         except (ImportError, AttributeError) as e:
-            print(f"** error: {e}")
+            print(f"ImportError or AttributeError: {e}")
             return None

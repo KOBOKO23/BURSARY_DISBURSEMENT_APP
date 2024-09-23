@@ -3,7 +3,6 @@ from datetime import datetime, timezone
 
 import models
 
-
 class BaseModel:
     """BaseModel Class"""
 
@@ -26,20 +25,18 @@ class BaseModel:
                     setattr(self, k, datetime.fromisoformat(v))
                 else:
                     setattr(self, k, v)
-        else:
+        # Register the object in storage if no kwargs are provided
+        if not kwargs:
             models.storage.new(self)
 
     def save(self):
-        """Update updated_at with the current datetime."""
+        """Update updated_at with the current datetime and save the instance."""
         self.updated_at = datetime.now(timezone.utc)
-        models.storage.save()
-        models.storage.new(self)
         models.storage.save()
 
     def to_dict(self):
         """
-        Returns a dictionary containing all
-        keys/values of __dict__ of the instance.
+        Returns a dictionary containing all keys/values of __dict__ of the instance.
         """
         dictionary = self.__dict__.copy()
         dictionary["__class__"] = self.__class__.__name__
