@@ -25,9 +25,9 @@ class BaseModel:
                     setattr(self, k, datetime.fromisoformat(v))
                 else:
                     setattr(self, k, v)
-        # Register the object in storage if no kwargs are provided
-        if not kwargs:
-            models.storage.new(self)
+        
+        # Register the object in storage
+        models.storage.new(self)
 
     def save(self):
         """Update updated_at with the current datetime and save the instance."""

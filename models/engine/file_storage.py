@@ -39,7 +39,8 @@ class FileStorage:
                             cls_name = k.split('.')[0]
                             cls = self.get_class(cls_name)
                             if cls:
-                                FileStorage.__objects[k] = cls(**v)
+                                obj = cls(**v)
+                                self.new(obj)  # Use new to register the object
                     except json.JSONDecodeError as e:
                         print(f"JSON decode error: {e}")
                         FileStorage.__objects = {}
@@ -53,5 +54,16 @@ class FileStorage:
             module = importlib.import_module(f"models.{class_name.lower()}")
             return getattr(module, class_name)
         except (ImportError, AttributeError) as e:
-            print(f"ImportError or AttributeError: {e}")
+            print(f"Error loading class {class_name}: {e}")
             return None
+
+    def update(self, class_name, id, attribute_name, value):
+        """Updates an attribute of an object in storage."""
+        key = f"{class_name}.{id}"
+        if key in self.__objects:
+            # Update the attribute
+            setattr(self.__objects[key], attribute_name, value)
+            # Save the changes
+            self.save()
+        else:
+            print("** no instance found **")

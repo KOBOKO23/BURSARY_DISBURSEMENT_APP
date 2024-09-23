@@ -90,7 +90,7 @@ To install and run the project locally, follow these steps:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/bursary-disbursement-app.git
+   git clone https://github.com/KOBOKO23/BURSARY_DISBURSEMENT_APP.git
    cd bursary-disbursement-app
    ```
 
@@ -129,7 +129,7 @@ Once installed, the Bursary Disbursement App allows students, institutions, and 
 
 ### Screenshot of the Application
 
-![Bursary App Screenshot](./images/screenshot.png)
+![Bursary App Screenshot](images/BUDA -APP.png)
 
 ## Contributing
 
