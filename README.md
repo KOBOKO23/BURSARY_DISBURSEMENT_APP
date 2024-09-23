@@ -180,6 +180,3 @@ The **Bursary Disbursement App** was created to address the need for a more effi
 ### Conclusion
 
 The **Bursary Disbursement App** is an efficient and user-friendly solution that addresses real-world problems in bursary allocation. With future improvements and features in the pipeline, it will further enhance the accessibility and transparency of bursary management systems.
-
-![Additional Screenshot](./images/additional-screenshot.png)
-```
