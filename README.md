@@ -117,7 +117,7 @@ To install and run the project locally, follow these steps:
    ```
 
 6. **Access the app**:
-   The app will be running on `http://localhost:5000/`.
+   The app will be running on `http://www.koboko.tech`.
 
 ## Usage
 
