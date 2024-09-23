@@ -157,12 +157,11 @@ Contributions are welcome! Here’s how you can get involved:
 
 ## Licensing
 
-This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+This project is not yet licensed. Still on the process.
 
 ## Resources
 
-- **What Your Code Repository Says About You**: [Link](https://example.com)
-- **Awesome List of READMEs**: [Link](https://example.com)
+- **What Your Code Repository Says About You**: [KOBOKO 23](https://github.com/KOBOKO23)
 
 ## Reflection and Challenges
 
