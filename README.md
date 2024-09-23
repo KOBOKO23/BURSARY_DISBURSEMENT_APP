@@ -12,7 +12,7 @@ The **Bursary Disbursement App** is designed to streamline the process of disbur
 - **Deployed Site**: [Bursary Disbursement App](https://your-deployed-site-link.com)
 - **Final Blog Article**: [The Journey of Building the Bursary App](https://your-blog-link.com)
 - **Author LinkedIn**: 
-    - [Your Name](https://www.linkedin.com/in/engineerphil/)
+    - [Philip Masero](https://www.linkedin.com/in/engineerphil/)
 
 ## Features
 - **Student Portal**: Students can register, apply for bursaries, and track their applications.
