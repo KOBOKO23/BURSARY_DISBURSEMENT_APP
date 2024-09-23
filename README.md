@@ -2,7 +2,7 @@
 
 # BURSARY DISBURSEMENT APP
 
-![Bursary App Screenshot](web_static/images/BUDA_APP.png)
+![Bursary App Screenshot](web_static/images/BUDA_logo.png)
 
 ## Project Description
 
