@@ -129,7 +129,7 @@ Once installed, the Bursary Disbursement App allows students, institutions, and 
 
 ### Screenshot of the Application
 
-![Bursary App Screenshot](web_static/images/BUDA -APP.png)
+![Bursary App Screenshot](web_static/images/BUDA_APP.png)
 
 ## Contributing
 
