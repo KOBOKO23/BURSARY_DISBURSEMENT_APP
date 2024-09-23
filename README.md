@@ -1,4 +1,4 @@
- `README.md`
+`README.md`
 
 # BURSARY DISBURSEMENT APP
 
@@ -58,7 +58,7 @@ The command interpreter allows you to create, update, and manage bursary applica
 
 - **Create a new institution**:
    ```bash
-   create Institution name="Institution Name" address="Institution Address" contact="Contact Info"
+   create Student first_name="John" last_name="Doe" age=18 parent_income=5000 constituency="Green Valley" status="orphan"
    ```
 
 - **Create a new student**:
